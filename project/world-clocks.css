@@ -1,0 +1,69 @@
+body {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+section#clocks {
+    padding: 1em;
+}
+
+section.world-clock {
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 0.25rem;
+    margin-bottom: 0.5em;
+    font-size: 2.5em;
+    padding: 0.25em;
+}
+
+section.world-clock  section {
+    display: inline-block;
+}
+
+section.world-clock .location {
+    margin-left: 0.5em;
+}
+
+section.world-clock .location .locale {
+    margin-left: 0.5em;
+}
+
+section.new-clock-button {
+    padding: 1em;
+}
+button#new-clock {
+    font-size: 0.8em;
+    padding:0.2em 0.4em;
+    background-color: #d5d5ff;
+    margin-right: 2em;
+    border-radius: 4px;
+}
+
+button#new-clock:hover {
+    background-color: #c5c5ff;
+}
+
+section.locales {
+    padding: 1em;
+}
+
+section.locales select {
+    font-size: 0.8em;
+    padding: 0.25em;
+}
+
+span.remove {
+    margin-left: 1em;
+}
+
+span.remove button {
+    font-size: 0.6em;
+    padding:0.2em 0.4em;
+    background-color: #ff8686;
+    border-radius: 4px;
+}
+
+span.remove button:hover {
+    background-color: #ff6565;
+}
+
+
