@@ -5,7 +5,7 @@ let offsets = {
     "America/New York": "-05:00",
     "Argentina/Buenos_Aires": "-03:00",
     "America/Los_Angeles": "-08:00",
-    "America/Denver": "-6:00",
+    "America/Denver": "-06:00",
     "Europe/London": "+00:00",
     "Europe/Moscow": "+03:00",
     "Japan": "+09:00",
@@ -14,6 +14,7 @@ let offsets = {
     "Pacific/Port_Moresby": "+10:00",
     "Pacific/Rarotonga": "-10:00",
     "ROK": "+09:00",
+    "Pacific/Sydney": "+11:00",
 }
 let clocks = {}
 let clockUpdateInterval
@@ -58,10 +59,14 @@ const updateClocks = function() {
 
 const renderClocks = function() {
     for (const l in clocks) {
-        const element = document.querySelector(`#${l.replace(" ", "-").replace("/", "-")}`)
-        if (element !== undefined && element !== null) {
+        const eleId = `#${l.replace(" ", "-").replace("/", "-")}`
+        const element = document.querySelector(eleId)
+        if (element != null) {
             const dt = clocks[l]
-            // TODO: dt currently in UTC, fix to show correct time.
+            // TODO: fix to show correct time.
+            // Time format - Location Hours, ...
+            // UTC - Auckland 07, London 20, NY 01, Sydney 09, Japan 11
+            // STD - Auckland 18, London 07, NY 12, Sydney 20, Japan 22
             let h = dt.getUTCHours()
             if (h === 24) {
                 h = 00
@@ -93,7 +98,8 @@ const addClock = function() {
 }
 
 const removeClock = function(locale) {
-    const ele = document.querySelector(`#${locale.replace(" ", "-").replace("/", "-")}`)
+    const eleId = `#${locale.replace(" ", "-").replace("/", "-")}`
+    const ele = document.querySelector(eleId)
     document.querySelector("#clocks").removeChild(ele)
     delete clocks[locale]
 }
